@@ -4,13 +4,12 @@
 ## Structure
 
 ```text
-semantic_attention/
-  configs/
-  datasets/
-  engine/
-  models/
-  scripts/
-  utils/
+configs/
+datasets/
+engine/
+models/
+scripts/
+utils/
 ```
 
 ## Dataset layout
@@ -18,7 +17,7 @@ semantic_attention/
 Expected dataset root:
 
 ```text
-semantic_attention/data/
+data/
   ISIC2018_Task1-2_Training_Input/
   ISIC2018_Task1_Training_GroundTruth/
   ISIC2018_Task1-2_Validation_Input/
@@ -32,26 +31,26 @@ semantic_attention/data/
 Train:
 
 ```bash
-python -m semantic_attention.scripts.train --model simple_unet --data-root semantic_attention/data --epochs 30
+python -m scripts.train --model simple_unet --data-root semantic_attention/data --epochs 30
 ```
 
 Evaluate:
 
 ```bash
-python -m semantic_attention.scripts.eval --model simple_unet --data-root semantic_attention/data --checkpoint outputs/simple_unet/best.pt
+python -m scripts.eval --model simple_unet --data-root semantic_attention/data --checkpoint outputs/simple_unet/best.pt
 ```
 
 Benchmark multiple checkpoints:
 
 ```bash
-python -m semantic_attention.scripts.benchmark --data-root semantic_attention/data ^
+python -m scripts.benchmark --data-root semantic_attention/data ^
   --run simple_unet=outputs/simple_unet/best.pt ^
   --run my_model=outputs/my_model/best.pt
 ```
 
 ## Plugging in your own models
 
-Register any model in `semantic_attention/models/builder.py`:
+Register any model in `models/builder.py`:
 
 ```python
 @register_model("my_model")
