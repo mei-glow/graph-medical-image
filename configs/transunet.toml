@@ -1,0 +1,27 @@
+[run]
+model = "transunet"
+output_dir = "outputs"
+
+[protocol]
+image_size = 224
+batch_size = 24
+num_workers = 8
+epochs = 150
+optimizer = "sgd"
+weight_decay = 0.0001
+momentum = 0.9
+scheduler = "PolynomialLR"
+scheduler_power = 0.9
+lr = 0.01
+loss = "transunet_ce_dice"
+threshold = 0.5
+seed = 1234
+train_normalize_mode = "swin"
+eval_normalize_mode = "swin"
+train_hflip_prob = 0.0
+train_vflip_prob = 0.0
+train_rotation_prob = 0.0
+train_rotation_min_deg = -20.0
+train_rotation_max_deg = 20.0
+early_stopping_patience = 0
+pretrained_path = "semantic_attention/models/transunet/vit_checkpoint/imagenet21k/R50+ViT-B_16.npz"

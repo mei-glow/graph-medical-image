@@ -1,0 +1,24 @@
+[run]
+model = "ultralightvmunet"
+output_dir = "outputs"
+
+[protocol]
+image_size = 256
+batch_size = 8
+num_workers = 0
+epochs = 250
+optimizer = "adamw"
+weight_decay = 0.0001
+scheduler = "CosineAnnealingLR"
+scheduler_t_max = 50
+scheduler_eta_min = 0.00001
+lr = 0.001
+loss = "bce_dice"
+threshold = 0.5
+seed = 42
+train_hflip_prob = 0.5
+train_vflip_prob = 0.5
+train_rotation_prob = 0.5
+train_rotation_min_deg = 0.0
+train_rotation_max_deg = 360.0
+early_stopping_patience = 0

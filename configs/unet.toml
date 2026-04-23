@@ -1,0 +1,17 @@
+[run]
+model = "unet"
+output_dir = "outputs"
+
+[protocol]
+# Repo default used img_scale=0.5; this pipeline uses fixed resize, so image_size stays project-defined.
+image_size = 256
+batch_size = 1
+num_workers = 0
+epochs = 100
+optimizer = "rmsprop"
+lr = 0.00001
+loss = "bce_dice"
+threshold = 0.5
+seed = 0
+base_channels = 32
+early_stopping_patience = 20

@@ -1,0 +1,47 @@
+# Python cache and local env
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+ENV/
+.ipynb_checkpoints/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs and runtime artifacts
+*.log
+runs/
+logs/
+
+# Training outputs and checkpoints
+outputs/
+output/
+checkpoints/
+checkpoint/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.npz
+
+# Local dataset copies
+data/
+
+# Pretrained model directories inside the codebase
+models/**/pretrained/
+models/**/pretrained_ckpt/
+models/**/pre_trained_weights/
+models/**/vit_checkpoint/
+
+# Optional large research files in project root
+# Uncomment if you also want to avoid pushing papers:
+*.pdf

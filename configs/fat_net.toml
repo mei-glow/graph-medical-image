@@ -1,0 +1,32 @@
+[run]
+model = "fat_net"
+output_dir = "outputs"
+
+[protocol]
+image_size = 224
+batch_size = 2
+num_workers = 0
+epochs = 50
+optimizer = "sgd"
+weight_decay = 0.0
+momentum = 0.9
+scheduler = "PolynomialLR"
+scheduler_power = 0.9
+lr = 0.001
+loss = "bce_dice"
+threshold = 0.5
+seed = 42
+train_normalize_mode = "imagenet"
+eval_normalize_mode = "imagenet"
+train_hflip_prob = 0.5
+train_vflip_prob = 0.5
+train_rotation_prob = 0.5
+train_rotation_min_deg = -15.0
+train_rotation_max_deg = 15.0
+train_color_jitter = true
+train_brightness_jitter = 0.03
+train_contrast_jitter = 0.03
+train_saturation_jitter = 0.03
+train_hue_jitter = 0.03
+early_stopping_patience = 0
+pretrained_path = "semantic_attention/models/fatnet/pretrained/facebook/deit-tiny-distilled-patch16-224.bin"

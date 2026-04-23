@@ -1,0 +1,30 @@
+[run]
+model = "ege_unet"
+output_dir = "outputs"
+
+[protocol]
+image_size = 256
+batch_size = 8
+num_workers = 0
+epochs = 300
+optimizer = "adamw"
+scheduler = "CosineAnnealingLR"
+scheduler_t_max = 50
+scheduler_eta_min = 0.00001
+lr = 0.001
+loss = "gt_bce_dice"
+loss_wb = 1.0
+loss_wd = 1.0
+threshold = 0.5
+seed = 42
+dataset_name = "isic18"
+train_normalize_mode = "ege"
+eval_normalize_mode = "ege"
+train_hflip_prob = 0.5
+train_vflip_prob = 0.5
+train_rotation_prob = 0.5
+train_rotation_min_deg = 0.0
+train_rotation_max_deg = 360.0
+# Paper/repo uses strong augmentation and 5 repeated runs; those are not encoded in this TOML.
+# Paper training runs for the full 300 epochs, so early stopping is disabled here.
+early_stopping_patience = 0

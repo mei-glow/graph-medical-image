@@ -1,0 +1,16 @@
+[run]
+model = "simple_unet"
+output_dir = "outputs"
+
+[protocol]
+image_size = 256
+batch_size = 16
+num_workers = 0
+epochs = 100
+optimizer = "adamw"
+lr = 0.0001
+loss = "bce_dice"
+threshold = 0.5
+seed = 42
+base_channels = 32
+early_stopping_patience = 20
